@@ -16,3 +16,8 @@ var classname=document.getElementsByClassName('list-group-item');
 for(let i=0;i<classname.length;i++){
     classname[i].style.backgroundColor=('violet');
 }
+var qs=document.querySelector('.list-group-item:nth-child(2)');
+qs.style.backgroundColor='green';
+var invisible=document.querySelector('.list-group-item:nth-child(3)');
+invisible.style.visibility = 'hidden';
+   
