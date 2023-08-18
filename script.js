@@ -1,23 +1,32 @@
-var header=document.getElementById('main-header');
-header.style.borderBottom='solid 3px #000';
-var elements=document.getElementsByClassName('title');
-for (let i = 0; i < elements.length; i++) {
-    elements[i].style.fontWeight = "bold";
-    elements[i].style.color="green";
-}
-var change=document.getElementsByClassName('list-group-item');
-change[2].style.backgroundColor='green';
-for(let i=0;i<change.length;i++){
-    change[i].style.fontWeight='bold';
-}
-var list=document.getElementsByTagName('li');
-list[4].style.backgroundColor='yellow';
-var classname=document.getElementsByClassName('list-group-item');
-for(let i=0;i<classname.length;i++){
-    classname[i].style.backgroundColor=('violet');
-}
-var qs=document.querySelector('.list-group-item:nth-child(2)');
-qs.style.backgroundColor='green';
-var invisible=document.querySelector('.list-group-item:nth-child(3)');
-invisible.style.visibility = 'hidden';
-   
+var change=document.querySelector('#items');
+//parentelement
+change.parentElement.style.backgroundColor="orange";
+//lastelementchild
+change.lastElementChild.style.backgroundColor="#ffa07a";
+//lastchild
+console.log(change.lastChild);
+//firstelementchild
+change.firstElementChild.style.backgroundColor="#ffa07a";
+//firstchild
+console.log(change.firstChild);
+//nextsibling
+console.log(change.nextSibling);
+// //nextelementsibling
+console.log(change.nextElementSibling);
+// previoussibling
+console.log(change.previousSibling);
+// previouselementsibling
+change.previousElementSibling.style.backgroundColor="#f94d00";
+// createelement
+var newDiv = document.createElement('div');
+newDiv.className="class";
+newDiv.id="id";
+// setAttribute
+newDiv.setAttribute('title','helloDiv');
+// createtesxtnode
+var newdiv=document.createTextNode("helloDiv");
+newDiv.append(newdiv)
+// appendchild
+var container=document.querySelector('.container')
+var h1=document.querySelector(' h1')
+container.insertBefore(newDiv,h1);
