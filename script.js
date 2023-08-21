@@ -1,9 +1,3 @@
-var form=document.getElementById('addForm');
-var itemList = document.getElementById('items');
-
-form.addEventListener('submit',addelement);
-itemList.addEventListener('click',removeElement);
-
 var listItems = document.querySelectorAll('.list-group-item');
 
 listItems.forEach(function(listItem) {
@@ -16,7 +10,13 @@ listItems.forEach(function(listItem) {
     var deleteButton = listItem.querySelector('.delete');
     listItem.appendChild(newButton);
 });
+var form=document.getElementById('addForm');
+var itemList = document.getElementById('items');
+var filter=document.getElementById('filter');
 
+form.addEventListener('submit',addelement);
+itemList.addEventListener('click',removeElement);
+filter.addEventListener('keyup',filterelement)
 
 function addelement(e){
     e.preventDefault();
@@ -46,3 +46,18 @@ function removeElement(e){
         }
     }
 }
+function filterelement(e){
+    // convert text to lowercase
+    var text = e.target.value.toLowerCase();
+    // Get lis
+    var items = itemList.getElementsByTagName('li');
+    // Convert to an array
+    Array.from(items).forEach(function(item){
+      var itemName = item.firstChild.textContent;
+      if(itemName.toLowerCase().indexOf(text) != -1){
+        item.style.display = 'block';
+      } else {
+        item.style.display = 'none';
+      }
+    });
+  }
